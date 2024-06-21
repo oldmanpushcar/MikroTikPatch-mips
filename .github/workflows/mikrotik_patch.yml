@@ -231,7 +231,7 @@ jobs:
     - name: Patch mikrotik-${{ env.LATEST_VERSION }}-mmips.npk
       run: |
         sudo -E python3 patch.py npk routeros-$LATEST_VERSION-mmips.npk
-        sudo zip routeros-$LATEST_VERSION-mmips.zip routeros-$LATEST_VERSION-mmips.zip
+        sudo zip routeros-$LATEST_VERSION-mmips.zip routeros-$LATEST_VERSION-mmips.npk
         
     - name: Delete Release tag ${{ env.LATEST_VERSION }}
       run: |
@@ -261,3 +261,4 @@ jobs:
           chr-${{ env.LATEST_VERSION }}.*.zip
           netinstall-${{ env.LATEST_VERSION }}.zip
           install-image-${{ env.LATEST_VERSION }}.zip
+          routeros-$LATEST_VERSION-mmips.zip
