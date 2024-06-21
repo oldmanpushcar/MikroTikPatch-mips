@@ -261,4 +261,5 @@ jobs:
           chr-${{ env.LATEST_VERSION }}.*.zip
           netinstall-${{ env.LATEST_VERSION }}.zip
           install-image-${{ env.LATEST_VERSION }}.zip
-          routeros-$LATEST_VERSION-mmips.zip
+          routeros-${{ env.LATEST_VERSION }}-mmips.zip
+          routeros-${{ env.LATEST_VERSION }}-mmips.npk
