@@ -223,7 +223,16 @@ jobs:
         sudo rm -rf ./install
         sudo zip install-image-$LATEST_VERSION.zip ./install-image-$LATEST_VERSION.img
         sudo rm ./install-image-$LATEST_VERSION.img
+        
+    - name: Get mikrotik-${{ env.LATEST_VERSION }}-mmips.npk
+      run: |
+        sudo wget -nv -O routeros-$LATEST_VERSION-mmips.npk https://download.mikrotik.com/routeros/$LATEST_VERSION/routeros-$LATEST_VERSION-mmips.npk
 
+    - name: Patch mikrotik-${{ env.LATEST_VERSION }}-mmips.npk
+      run: |
+        sudo -E python3 patch.py npk routeros-$LATEST_VERSION-mmips.npk
+        sudo zip routeros-$LATEST_VERSION-mmips.zip routeros-$LATEST_VERSION-mmips.zip
+        
     - name: Delete Release tag ${{ env.LATEST_VERSION }}
       run: |
         HEADER="Authorization: token ${{ secrets.GITHUB_TOKEN }}"
